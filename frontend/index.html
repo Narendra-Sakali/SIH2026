@@ -1,0 +1,3179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>TransformAI | NTRO</title>
+
+
+<style>
+
+/* ================================================= */
+/* GLOBAL */
+/* ================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",Arial,sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+    color:#172033;
+}
+
+
+/* ================================================= */
+/* SIDEBAR */
+/* ================================================= */
+
+.sidebar{
+    position:fixed;
+    left:0;
+    top:0;
+    width:250px;
+    height:100vh;
+    background:#071a2d;
+    color:white;
+    padding:25px 18px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:10px;
+    margin-bottom:35px;
+}
+
+.logo-icon{
+    width:43px;
+    height:43px;
+    background:linear-gradient(
+        135deg,
+        #16a085,
+        #1abc9c
+    );
+    border-radius:12px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:22px;
+    font-weight:bold;
+}
+
+.logo-text h2{
+    font-size:19px;
+}
+
+.logo-text p{
+    font-size:10px;
+    color:#8ea5ba;
+    margin-top:3px;
+    letter-spacing:1px;
+}
+
+.menu-title{
+    color:#70879c;
+    font-size:11px;
+    text-transform:uppercase;
+
+    margin:20px 12px 10px;
+
+    letter-spacing:1px;
+}
+
+.menu-item{
+    padding:13px 14px;
+    margin:5px 0;
+
+    border-radius:9px;
+
+    color:#aebdcc;
+
+    cursor:pointer;
+
+    display:flex;
+    gap:12px;
+    align-items:center;
+}
+
+.menu-item:hover,
+.menu-item.active{
+    background:#123450;
+    color:white;
+}
+
+.sidebar-footer{
+    position:absolute;
+    bottom:25px;
+    left:25px;
+    right:25px;
+
+    border-top:1px solid #1c354a;
+
+    padding-top:18px;
+
+    color:#8196a8;
+    font-size:11px;
+}
+
+
+/* ================================================= */
+/* MAIN */
+/* ================================================= */
+
+.main{
+    margin-left:250px;
+    min-height:100vh;
+}
+
+.topbar{
+    height:72px;
+
+    background:white;
+
+    border-bottom:1px solid #e5eaf0;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 35px;
+}
+
+.page-title h1{
+    font-size:22px;
+}
+
+.page-title p{
+    font-size:12px;
+    color:#7a8797;
+    margin-top:3px;
+}
+
+.user-area{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.status{
+    display:flex;
+    align-items:center;
+    gap:6px;
+
+    font-size:12px;
+    color:#238a66;
+
+    margin-right:15px;
+}
+
+.status-dot{
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:#2ecc71;
+}
+
+.avatar{
+    width:38px;
+    height:38px;
+
+    border-radius:50%;
+
+    background:#0c7c70;
+    color:white;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-weight:bold;
+}
+
+
+/* ================================================= */
+/* CONTENT */
+/* ================================================= */
+
+.content{
+    padding:30px 35px;
+}
+
+.welcome{
+    margin-bottom:25px;
+}
+
+.welcome h2{
+    font-size:25px;
+    margin-bottom:6px;
+}
+
+.welcome p{
+    color:#718094;
+    font-size:14px;
+}
+
+.dashboard-grid{
+    display:grid;
+
+    grid-template-columns:
+        1.25fr .75fr;
+
+    gap:22px;
+}
+
+.card{
+    background:white;
+
+    border:1px solid #e4e9ef;
+
+    border-radius:14px;
+
+    padding:22px;
+
+    box-shadow:
+        0 3px 12px
+        rgba(18,38,63,.04);
+}
+
+.card-title{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:18px;
+}
+
+.card-title h3{
+    font-size:16px;
+}
+
+.step{
+    font-size:11px;
+
+    color:#0c8d78;
+
+    background:#e7f7f3;
+
+    padding:5px 9px;
+
+    border-radius:20px;
+}
+
+
+/* ================================================= */
+/* UPLOAD */
+/* ================================================= */
+
+.upload-area{
+    border:2px dashed #cbd6df;
+
+    border-radius:12px;
+
+    min-height:190px;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    cursor:pointer;
+
+    padding:25px;
+}
+
+.upload-area:hover{
+    border-color:#16a085;
+    background:#f7fcfb;
+}
+
+.upload-icon{
+    width:55px;
+    height:55px;
+
+    border-radius:50%;
+
+    background:#e8f7f4;
+
+    color:#0d8b78;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:25px;
+
+    margin-bottom:12px;
+}
+
+.upload-area h4{
+    font-size:15px;
+    margin-bottom:6px;
+}
+
+.upload-area p{
+    font-size:12px;
+    color:#8491a0;
+    text-align:center;
+}
+
+.browse-btn{
+    margin-top:14px;
+
+    border:1px solid #0c8d78;
+
+    color:#087764;
+
+    background:white;
+
+    border-radius:7px;
+
+    padding:8px 16px;
+
+    cursor:pointer;
+
+    font-weight:600;
+}
+
+#fileInput{
+    display:none;
+}
+
+.file-name{
+    margin-top:10px;
+
+    font-size:12px;
+
+    color:#0c8d78;
+
+    display:none;
+}
+
+
+/* ================================================= */
+/* TEXTAREA */
+/* ================================================= */
+
+.divider{
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin:20px 0;
+
+    color:#a2adba;
+
+    font-size:11px;
+}
+
+.divider:before,
+.divider:after{
+    content:"";
+
+    flex:1;
+
+    height:1px;
+
+    background:#e7ebef;
+}
+
+textarea{
+    width:100%;
+
+    height:120px;
+
+    resize:vertical;
+
+    border:1px solid #dbe2e8;
+
+    border-radius:9px;
+
+    padding:13px;
+
+    outline:none;
+
+    font-size:13px;
+}
+
+textarea:focus,
+select:focus{
+    border-color:#15a085;
+}
+
+
+/* ================================================= */
+/* SETTINGS */
+/* ================================================= */
+
+.setting{
+    margin-bottom:17px;
+}
+
+.setting label{
+    display:block;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    margin-bottom:7px;
+
+    color:#526174;
+}
+
+select{
+    width:100%;
+
+    height:40px;
+
+    border:1px solid #dce3e9;
+
+    border-radius:8px;
+
+    padding:0 10px;
+
+    background:white;
+
+    color:#344354;
+
+    outline:none;
+}
+
+.range-row{
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+}
+
+input[type=range]{
+    flex:1;
+
+    accent-color:#0c917c;
+}
+
+.range-value{
+    width:65px;
+
+    font-size:11px;
+
+    color:#637286;
+}
+
+
+/* ================================================= */
+/* OUTPUT TYPES */
+/* ================================================= */
+
+.output-section{
+    margin-top:22px;
+}
+
+.output-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:10px;
+}
+
+.output-option{
+    border:1px solid #dfe6ec;
+
+    border-radius:9px;
+
+    padding:12px;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.output-option:hover{
+    border-color:#16a085;
+
+    background:#f8fcfb;
+}
+
+.output-option input{
+    margin-right:7px;
+
+    accent-color:#0d907b;
+}
+
+.output-option strong{
+    font-size:12px;
+}
+
+.output-option small{
+    display:block;
+
+    margin-left:22px;
+
+    color:#8491a0;
+
+    font-size:10px;
+
+    margin-top:3px;
+}
+
+
+/* ================================================= */
+/* PROMPT REFINEMENT */
+/* ================================================= */
+
+.prompt-section{
+    margin-top:22px;
+}
+
+.prompt-card{
+    background:white;
+
+    border:1px solid #e4e9ef;
+
+    border-radius:14px;
+
+    padding:22px;
+
+    box-shadow:
+        0 3px 12px
+        rgba(18,38,63,.04);
+}
+
+.prompt-description{
+    color:#7b8898;
+
+    font-size:12px;
+
+    line-height:1.6;
+
+    margin-bottom:16px;
+}
+
+.prompt-box{
+    border:1px solid #dbe3e9;
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+    margin-bottom:14px;
+}
+
+.prompt-label{
+    background:#f5f8fa;
+
+    border-bottom:1px solid #e1e7eb;
+
+    padding:10px 13px;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    color:#526174;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+}
+
+.prompt-label span{
+    font-size:10px;
+
+    font-weight:500;
+
+    color:#8a97a5;
+}
+
+.prompt-box textarea{
+    border:none;
+
+    border-radius:0;
+
+    min-height:115px;
+
+    height:115px;
+}
+
+.prompt-box textarea:focus{
+    border:none;
+}
+
+.prompt-actions{
+    display:flex;
+
+    gap:10px;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+}
+
+.refine-btn{
+    border:none;
+
+    background:#0c8d78;
+
+    color:white;
+
+    padding:11px 18px;
+
+    border-radius:8px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    cursor:pointer;
+}
+
+.refine-btn:hover{
+    background:#087765;
+}
+
+.refine-btn:disabled{
+    opacity:.7;
+
+    cursor:not-allowed;
+}
+
+.copy-btn{
+    border:1px solid #ccd8df;
+
+    background:white;
+
+    color:#526174;
+
+    padding:10px 15px;
+
+    border-radius:8px;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    cursor:pointer;
+}
+
+.copy-btn:hover{
+    border-color:#0c8d78;
+
+    color:#0c8d78;
+}
+
+.prompt-status{
+    display:none;
+
+    align-items:center;
+
+    gap:6px;
+
+    font-size:11px;
+
+    color:#218761;
+
+    margin-left:auto;
+}
+
+.prompt-status .status-dot{
+    width:7px;
+    height:7px;
+}
+
+.refined-box{
+    display:none;
+
+    margin-top:16px;
+
+    border:1px solid #a9ded3;
+
+    border-radius:10px;
+
+    background:#f7fcfb;
+
+    overflow:hidden;
+}
+
+.refined-header{
+    padding:11px 13px;
+
+    background:#e9f8f4;
+
+    border-bottom:1px solid #cdebe4;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+}
+
+.refined-header strong{
+    font-size:12px;
+
+    color:#087765;
+}
+
+.refined-header span{
+    font-size:10px;
+
+    color:#268c77;
+}
+
+#refinedPrompt{
+    background:#f7fcfb;
+
+    border:none;
+
+    min-height:190px;
+
+    height:190px;
+
+    color:#253c49;
+
+    line-height:1.6;
+}
+
+#refinedPrompt:focus{
+    border:none;
+}
+
+
+/* ================================================= */
+/* TRANSFORM */
+/* ================================================= */
+
+.transform-container{
+    margin-top:22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #062b3d,
+            #0c5c62
+        );
+
+    border-radius:14px;
+
+    padding:25px;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+}
+
+.transform-text h3{
+    font-size:18px;
+
+    margin-bottom:5px;
+}
+
+.transform-text p{
+    color:#b7d5d8;
+
+    font-size:12px;
+}
+
+.transform-btn{
+    border:none;
+
+    background:#20c39a;
+
+    color:white;
+
+    padding:13px 25px;
+
+    border-radius:8px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    font-size:13px;
+}
+
+.transform-btn:hover{
+    background:#19ab86;
+}
+
+.transform-btn:disabled{
+    background:#52777a;
+
+    cursor:not-allowed;
+}
+
+
+/* ================================================= */
+/* LOADING */
+/* ================================================= */
+
+.loading{
+    display:none;
+
+    margin-top:22px;
+
+    background:white;
+
+    border:1px solid #e3e8ed;
+
+    border-radius:12px;
+
+    padding:30px;
+
+    text-align:center;
+}
+
+.spinner{
+    width:40px;
+    height:40px;
+
+    border:4px solid #dceeea;
+
+    border-top-color:#0d8e78;
+
+    border-radius:50%;
+
+    animation:spin .9s linear infinite;
+
+    margin:0 auto 15px;
+}
+
+@keyframes spin{
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+
+/* ================================================= */
+/* OUTPUT */
+/* ================================================= */
+
+#outputArea{
+    display:none;
+
+    margin-top:25px;
+}
+
+.output-header{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:15px;
+}
+
+.output-header h2{
+    font-size:20px;
+}
+
+.download-btn{
+    border:1px solid #ccd7df;
+
+    background:white;
+
+    padding:8px 13px;
+
+    border-radius:7px;
+
+    cursor:pointer;
+
+    font-size:11px;
+}
+
+.tabs{
+    display:flex;
+
+    gap:7px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:15px;
+}
+
+.tab{
+    border:1px solid #d9e1e7;
+
+    background:white;
+
+    padding:9px 13px;
+
+    border-radius:7px;
+
+    cursor:pointer;
+
+    font-size:11px;
+}
+
+.tab.active{
+    background:#0b8875;
+
+    color:white;
+
+    border-color:#0b8875;
+}
+
+.generated-content{
+    background:white;
+
+    border:1px solid #e2e8ed;
+
+    border-radius:12px;
+
+    padding:25px;
+
+    min-height:230px;
+
+    line-height:1.7;
+
+    font-size:13px;
+
+    white-space:normal;
+
+    overflow-wrap:anywhere;
+}
+
+.generated-content h3{
+    margin-bottom:12px;
+}
+
+.generated-content ul{
+    margin-left:20px;
+}
+
+
+/* ================================================= */
+/* ERROR */
+/* ================================================= */
+
+.error-message{
+    display:none;
+
+    margin-top:15px;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    background:#fff1f1;
+
+    border:1px solid #f0caca;
+
+    color:#a33a3a;
+
+    font-size:12px;
+}
+
+
+/* ================================================= */
+/* RESPONSIVE */
+/* ================================================= */
+
+@media(max-width:950px){
+
+    .sidebar{
+        width:70px;
+
+        padding:15px 10px;
+    }
+
+    .logo-text,
+    .menu-item span,
+    .menu-title,
+    .sidebar-footer{
+        display:none;
+    }
+
+    .logo{
+        justify-content:center;
+    }
+
+    .main{
+        margin-left:70px;
+    }
+
+    .dashboard-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .content{
+        padding:20px 15px;
+    }
+
+    .topbar{
+        padding:0 15px;
+    }
+
+    .status{
+        display:none;
+    }
+
+    .output-grid{
+        grid-template-columns:1fr;
+    }
+
+    .transform-container{
+        flex-direction:column;
+
+        gap:20px;
+
+        align-items:flex-start;
+    }
+
+    .prompt-status{
+        margin-left:0;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================================================= -->
+<!-- SIDEBAR -->
+<!-- ================================================= -->
+
+<aside class="sidebar">
+
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            T
+        </div>
+
+        <div class="logo-text">
+
+            <h2>
+                TransformAI
+            </h2>
+
+            <p>
+                NTRO CONTENT ENGINE
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="menu-title">
+        Workspace
+    </div>
+
+
+    <div class="menu-item active">
+
+        <b>▦</b>
+
+        <span>
+            Dashboard
+        </span>
+
+    </div>
+
+
+    <div class="menu-item">
+
+        <b>↗</b>
+
+        <span>
+            My Transformations
+        </span>
+
+    </div>
+
+
+    <div class="menu-item">
+
+        <b>◈</b>
+
+        <span>
+            Templates
+        </span>
+
+    </div>
+
+
+    <div class="menu-title">
+        System
+    </div>
+
+
+    <div class="menu-item">
+
+        <b>⚙</b>
+
+        <span>
+            Settings
+        </span>
+
+    </div>
+
+
+    <div class="menu-item">
+
+        <b>?</b>
+
+        <span>
+            Help & Documentation
+        </span>
+
+    </div>
+
+
+    <div class="sidebar-footer">
+
+        <strong>
+            NTRO
+        </strong>
+
+        <br>
+
+        National Technical Research Organisation
+
+    </div>
+
+
+</aside>
+
+
+
+<!-- ================================================= -->
+<!-- MAIN -->
+<!-- ================================================= -->
+
+<main class="main">
+
+
+<header class="topbar">
+
+
+    <div class="page-title">
+
+        <h1>
+            Content Transformation
+        </h1>
+
+        <p>
+            Convert one source into multiple communication artefacts
+        </p>
+
+    </div>
+
+
+    <div class="user-area">
+
+        <div class="status">
+
+            <div class="status-dot"></div>
+
+            AI Engine Online
+
+        </div>
+
+
+        <div class="avatar">
+            N
+        </div>
+
+    </div>
+
+
+</header>
+
+
+
+<section class="content">
+
+
+<div class="welcome">
+
+    <h2>
+        Transform your content with AI
+    </h2>
+
+    <p>
+        Upload your source material, refine your prompt,
+        configure communication parameters, and generate
+        professional outputs.
+    </p>
+
+</div>
+
+
+
+<!-- ================================================= -->
+<!-- SOURCE + SETTINGS -->
+<!-- ================================================= -->
+
+<div class="dashboard-grid">
+
+
+<!-- ================================================= -->
+<!-- SOURCE -->
+<!-- ================================================= -->
+
+<div class="card">
+
+
+<div class="card-title">
+
+    <h3>
+        01 &nbsp; Source Content
+    </h3>
+
+    <span class="step">
+        INPUT
+    </span>
+
+</div>
+
+
+
+<div class="upload-area"
+     onclick="document.getElementById('fileInput').click()">
+
+
+    <div class="upload-icon">
+        ↑
+    </div>
+
+
+    <h4>
+        Drop your document here
+    </h4>
+
+
+    <p>
+        PDF, DOCX, TXT and other supported files
+    </p>
+
+
+    <button class="browse-btn"
+            type="button"
+            onclick="
+                event.stopPropagation();
+                document.getElementById('fileInput').click();
+            ">
+
+        Browse Files
+
+    </button>
+
+
+    <input
+        type="file"
+        id="fileInput"
+        accept=".pdf,.docx,.txt"
+    >
+
+
+    <div
+        class="file-name"
+        id="fileName">
+    </div>
+
+
+</div>
+
+
+
+<div class="divider">
+
+    OR ENTER CONTENT MANUALLY
+
+</div>
+
+
+
+<textarea
+    id="sourceText"
+    placeholder="Paste an article, report, advisory, research paper, incident description or any contextual information here..."
+></textarea>
+
+
+</div>
+
+
+
+<!-- ================================================= -->
+<!-- SETTINGS -->
+<!-- ================================================= -->
+
+<div class="card">
+
+
+<div class="card-title">
+
+    <h3>
+        02 &nbsp; Generation Settings
+    </h3>
+
+    <span class="step">
+        CONFIGURE
+    </span>
+
+</div>
+
+
+
+<div class="setting">
+
+<label>
+    Target Audience
+</label>
+
+<select id="audience">
+
+<option>
+    General Public
+</option>
+
+<option>
+    Government Officials
+</option>
+
+<option>
+    Senior Executives
+</option>
+
+<option>
+    Technical Experts
+</option>
+
+<option>
+    Security Professionals
+</option>
+
+<option>
+    Students
+</option>
+
+<option>
+    Media
+</option>
+
+</select>
+
+</div>
+
+
+
+<div class="setting">
+
+<label>
+    Tone
+</label>
+
+<select id="tone">
+
+<option>
+    Professional
+</option>
+
+<option>
+    Formal
+</option>
+
+<option>
+    Technical
+</option>
+
+<option>
+    Informative
+</option>
+
+<option>
+    Persuasive
+</option>
+
+<option>
+    Urgent
+</option>
+
+<option>
+    Simple & Friendly
+</option>
+
+</select>
+
+</div>
+
+
+
+<div class="setting">
+
+<label>
+    Language
+</label>
+
+<select id="language">
+
+<option value="English">
+    English
+</option>
+
+<option value="Hindi">
+    हिन्दी (Hindi)
+</option>
+
+<option value="Telugu">
+    తెలుగు (Telugu)
+</option>
+
+</select>
+
+</div>
+
+
+
+<div class="setting">
+
+<label>
+    Communication Objective
+</label>
+
+<select id="objective">
+
+<option>
+    Inform
+</option>
+
+<option>
+    Educate
+</option>
+
+<option>
+    Warn
+</option>
+
+<option>
+    Persuade
+</option>
+
+<option>
+    Summarize
+</option>
+
+<option>
+    Brief Decision Makers
+</option>
+
+</select>
+
+</div>
+
+
+
+<div class="setting">
+
+<label>
+    Level of Detail
+</label>
+
+
+<div class="range-row">
+
+<input
+    type="range"
+    id="detail"
+    min="1"
+    max="3"
+    value="2"
+    oninput="updateDetail()"
+>
+
+
+<span
+    class="range-value"
+    id="detailValue">
+
+    Medium
+
+</span>
+
+</div>
+
+</div>
+
+
+
+<!-- ================================================= -->
+<!-- OUTPUT SELECTION -->
+<!-- ================================================= -->
+
+<div class="output-section">
+
+
+<div class="card-title">
+
+<h3>
+    03 &nbsp; Select Outputs
+</h3>
+
+<span class="step">
+    MULTI-SELECT
+</span>
+
+</div>
+
+
+
+<div class="output-grid">
+
+
+<label class="output-option">
+
+<input
+    type="checkbox"
+    value="Executive Summary"
+    checked
+>
+
+<strong>
+    Executive Summary
+</strong>
+
+<small>
+    Concise briefing
+</small>
+
+</label>
+
+
+
+<label class="output-option">
+
+<input
+    type="checkbox"
+    value="Advisory"
+>
+
+<strong>
+    Advisory
+</strong>
+
+<small>
+    Structured advisory
+</small>
+
+</label>
+
+
+
+<label class="output-option">
+
+<input
+    type="checkbox"
+    value="LinkedIn Post"
+    checked
+>
+
+<strong>
+    LinkedIn Post
+</strong>
+
+<small>
+    Professional post
+</small>
+
+</label>
+
+
+
+<label class="output-option">
+
+<input
+    type="checkbox"
+    value="X Thread"
+>
+
+<strong>
+    X / Twitter
+</strong>
+
+<small>
+    Thread format
+</small>
+
+</label>
+
+
+
+<label class="output-option">
+
+<input
+    type="checkbox"
+    value="Presentation"
+>
+
+<strong>
+    Presentation
+</strong>
+
+<small>
+    Slides + notes
+</small>
+
+</label>
+
+
+
+<label class="output-option">
+
+<input
+    type="checkbox"
+    value="Infographic"
+>
+
+<strong>
+    Infographic
+</strong>
+
+<small>
+    Visual content
+</small>
+
+</label>
+
+
+
+<label class="output-option">
+
+<input
+    type="checkbox"
+    value="Video Package"
+>
+
+<strong>
+    Video Package
+</strong>
+
+<small>
+    Script + storyboard
+</small>
+
+</label>
+
+
+
+<label class="output-option">
+
+<input
+    type="checkbox"
+    value="Report"
+>
+
+<strong>
+    Detailed Report
+</strong>
+
+<small>
+    Structured report
+</small>
+
+</label>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- ================================================= -->
+<!-- PROMPT REFINEMENT -->
+<!-- ================================================= -->
+
+<section class="prompt-section">
+
+
+<div class="prompt-card">
+
+
+<div class="card-title">
+
+    <h3>
+        04 &nbsp; AI Prompt Refinement
+    </h3>
+
+    <span class="step">
+        PROMPT ENGINEERING
+    </span>
+
+</div>
+
+
+<p class="prompt-description">
+
+    TransformAI first understands your broken, incomplete,
+    or poorly structured request. It then converts it into
+    a clear, precise and high-quality AI prompt before
+    generating the final communication artefact.
+
+</p>
+
+
+
+<!-- RAW PROMPT -->
+
+<div class="prompt-box">
+
+
+<div class="prompt-label">
+
+    <span>
+        RAW / BROKEN PROMPT
+    </span>
+
+    <span>
+        USER INPUT
+    </span>
+
+</div>
+
+
+<textarea
+    id="rawPrompt"
+    placeholder="Example: make a security post from this report and make it professional..."
+></textarea>
+
+
+</div>
+
+
+
+<div class="prompt-actions">
+
+
+<button
+    class="refine-btn"
+    onclick="refinePrompt()">
+
+    ✨ IMPROVE PROMPT
+
+</button>
+
+
+
+<div
+    class="prompt-status"
+    id="promptStatus">
+
+    <div class="status-dot"></div>
+
+    High-quality prompt ready
+
+</div>
+
+
+</div>
+
+
+
+<!-- REFINED PROMPT -->
+
+<div
+    class="refined-box"
+    id="refinedBox">
+
+
+<div class="refined-header">
+
+    <strong>
+        ✨ HIGH-QUALITY PROMPT
+    </strong>
+
+    <span>
+        AI REFINED
+    </span>
+
+</div>
+
+
+
+<textarea
+    id="refinedPrompt"
+    placeholder="Your refined prompt will appear here..."
+></textarea>
+
+
+
+<div
+    style="
+        padding:10px 13px;
+        border-top:1px solid #cdebe4;
+    ">
+
+
+<button
+    class="copy-btn"
+    onclick="copyPrompt()">
+
+    📋 Copy Prompt
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- TRANSFORM -->
+<!-- ================================================= -->
+
+<div class="transform-container">
+
+
+<div class="transform-text">
+
+<h3>
+    Ready to transform?
+</h3>
+
+<p>
+    First refine your prompt, then generate your selected
+    communication artefacts.
+</p>
+
+</div>
+
+
+
+<button
+    class="transform-btn"
+    id="transformButton"
+    onclick="transformContent()"
+    disabled>
+
+    ✨ TRANSFORM CONTENT
+
+</button>
+
+
+</div>
+
+
+
+<!-- ================================================= -->
+<!-- ERROR MESSAGE -->
+<!-- ================================================= -->
+
+<div
+    class="error-message"
+    id="errorMessage">
+</div>
+
+
+
+<!-- ================================================= -->
+<!-- LOADING -->
+<!-- ================================================= -->
+
+<div
+    class="loading"
+    id="loading">
+
+
+<div class="spinner"></div>
+
+
+<h3>
+    AI is transforming your content...
+</h3>
+
+
+<p
+    id="loadingText">
+
+    Connecting to TransformAI backend
+
+</p>
+
+
+</div>
+
+
+
+<!-- ================================================= -->
+<!-- OUTPUT -->
+<!-- ================================================= -->
+
+<div id="outputArea">
+
+
+<div class="output-header">
+
+
+<div>
+
+<h2>
+    Generated Artefacts
+</h2>
+
+
+<p
+    style="
+        font-size:12px;
+        color:#8290a0;
+        margin-top:4px;
+    ">
+
+    AI-generated outputs based on your
+    refined prompt and selected parameters
+
+</p>
+
+</div>
+
+
+
+<button
+    class="download-btn"
+    onclick="downloadOutput()">
+
+    ↓ Download
+
+</button>
+
+
+</div>
+
+
+
+<div
+    class="tabs"
+    id="tabs">
+</div>
+
+
+
+<div
+    class="generated-content"
+    id="generatedContent">
+</div>
+
+
+</div>
+
+
+
+</section>
+
+
+</main>
+
+
+
+<script>
+
+/* ================================================= */
+/* BACKEND URL */
+/* ================================================= */
+
+/*
+    FastAPI backend
+*/
+
+const API_BASE_URL =
+    "http://127.0.0.1:8000";
+
+
+/* ================================================= */
+/* GLOBAL STATE */
+/* ================================================= */
+
+let generatedOutputs = {};
+
+let promptIsRefined = false;
+
+
+/* ================================================= */
+/* FILE INPUT */
+/* ================================================= */
+
+const fileInput =
+    document.getElementById("fileInput");
+
+
+const fileName =
+    document.getElementById("fileName");
+
+
+fileInput.addEventListener(
+    "change",
+    function(){
+
+        if(this.files.length > 0){
+
+            fileName.style.display =
+                "block";
+
+            fileName.innerText =
+                "✓ Selected: " +
+                this.files[0].name;
+
+        }
+
+    }
+);
+
+
+/* ================================================= */
+/* DETAIL */
+/* ================================================= */
+
+function updateDetail(){
+
+    const value =
+        document.getElementById(
+            "detail"
+        ).value;
+
+
+    const display =
+        document.getElementById(
+            "detailValue"
+        );
+
+
+    if(value === "1"){
+
+        display.innerText =
+            "Brief";
+
+    }
+
+
+    if(value === "2"){
+
+        display.innerText =
+            "Medium";
+
+    }
+
+
+    if(value === "3"){
+
+        display.innerText =
+            "Detailed";
+
+    }
+
+}
+
+
+/* ================================================= */
+/* ERROR DISPLAY */
+/* ================================================= */
+
+function showError(message){
+
+    const errorBox =
+        document.getElementById(
+            "errorMessage"
+        );
+
+
+    errorBox.innerText =
+        message;
+
+
+    errorBox.style.display =
+        "block";
+
+
+    errorBox.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+
+}
+
+
+function hideError(){
+
+    document.getElementById(
+        "errorMessage"
+    ).style.display =
+        "none";
+
+}
+
+
+/* ================================================= */
+/* REFINE PROMPT */
+/* ================================================= */
+
+async function refinePrompt(){
+
+    hideError();
+
+
+    const rawPrompt =
+        document
+            .getElementById("rawPrompt")
+            .value
+            .trim();
+
+
+    const source =
+        document
+            .getElementById("sourceText")
+            .value
+            .trim();
+
+
+    const audience =
+        document
+            .getElementById("audience")
+            .value;
+
+
+    const tone =
+        document
+            .getElementById("tone")
+            .value;
+
+
+    const language =
+        document
+            .getElementById("language")
+            .value;
+
+
+    const objective =
+        document
+            .getElementById("objective")
+            .value;
+
+
+    const detail =
+        document
+            .getElementById("detail")
+            .value;
+
+
+    /* ----------------------------------------- */
+    /* VALIDATION */
+    /* ----------------------------------------- */
+
+    if(!rawPrompt && !source){
+
+        showError(
+            "Please enter a broken prompt or source content first."
+        );
+
+        return;
+
+    }
+
+
+    /* ----------------------------------------- */
+    /* BUTTON STATE */
+    /* ----------------------------------------- */
+
+    const refineButton =
+        document.querySelector(
+            ".refine-btn"
+        );
+
+
+    refineButton.innerText =
+        "⏳ REFINING PROMPT...";
+
+
+    refineButton.disabled =
+        true;
+
+
+    try{
+
+
+        /* ----------------------------------------- */
+        /* FORM DATA */
+        /* ----------------------------------------- */
+
+        const formData =
+            new FormData();
+
+
+        formData.append(
+            "raw_prompt",
+            rawPrompt
+        );
+
+
+        formData.append(
+            "source_text",
+            source
+        );
+
+
+        formData.append(
+            "audience",
+            audience
+        );
+
+
+        formData.append(
+            "tone",
+            tone
+        );
+
+
+        formData.append(
+            "language",
+            language
+        );
+
+
+        formData.append(
+            "objective",
+            objective
+        );
+
+
+        formData.append(
+            "detail",
+            detail
+        );
+
+
+        /* ----------------------------------------- */
+        /* FILE */
+        /* ----------------------------------------- */
+
+        if(fileInput.files.length > 0){
+
+            formData.append(
+                "file",
+                fileInput.files[0]
+            );
+
+        }
+
+
+        /* ----------------------------------------- */
+        /* BACKEND REQUEST */
+        /* ----------------------------------------- */
+
+        const response =
+            await fetch(
+                API_BASE_URL +
+                "/api/refine-prompt",
+                {
+                    method:"POST",
+                    body:formData
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        /* ----------------------------------------- */
+        /* ERROR */
+        /* ----------------------------------------- */
+
+        if(!response.ok){
+
+            throw new Error(
+                data.detail ||
+                "Prompt refinement failed."
+            );
+
+        }
+
+
+        /* ----------------------------------------- */
+        /* DISPLAY REFINED PROMPT */
+        /* ----------------------------------------- */
+
+        document
+            .getElementById(
+                "refinedPrompt"
+            )
+            .value =
+            data.refined_prompt;
+
+
+        document
+            .getElementById(
+                "refinedBox"
+            )
+            .style.display =
+            "block";
+
+
+        document
+            .getElementById(
+                "promptStatus"
+            )
+            .style.display =
+            "flex";
+
+
+        /* ----------------------------------------- */
+        /* ENABLE TRANSFORM */
+        /* ----------------------------------------- */
+
+        promptIsRefined =
+            true;
+
+
+        document
+            .getElementById(
+                "transformButton"
+            )
+            .disabled =
+            false;
+
+
+        refineButton.innerText =
+            "✓ PROMPT REFINED";
+
+
+        /* ----------------------------------------- */
+        /* SCROLL */
+        /* ----------------------------------------- */
+
+        document
+            .getElementById(
+                "refinedBox"
+            )
+            .scrollIntoView({
+                behavior:"smooth",
+                block:"center"
+            });
+
+
+    }
+
+    catch(error){
+
+        console.error(
+            "Refine error:",
+            error
+        );
+
+
+        showError(
+            error.message
+        );
+
+
+        refineButton.innerText =
+            "✨ IMPROVE PROMPT";
+
+    }
+
+    finally{
+
+        refineButton.disabled =
+            false;
+
+    }
+
+}
+
+
+/* ================================================= */
+/* COPY PROMPT */
+/* ================================================= */
+
+function copyPrompt(){
+
+    const prompt =
+        document
+            .getElementById(
+                "refinedPrompt"
+            )
+            .value;
+
+
+    if(!prompt){
+
+        return;
+
+    }
+
+
+    navigator.clipboard
+        .writeText(prompt)
+        .then(()=>{
+
+            const button =
+                document.querySelector(
+                    ".copy-btn"
+                );
+
+
+            button.innerText =
+                "✓ Copied";
+
+
+            setTimeout(()=>{
+
+                button.innerText =
+                    "📋 Copy Prompt";
+
+            },1500);
+
+        });
+
+}
+
+
+/* ================================================= */
+/* TRANSFORM CONTENT */
+/* ================================================= */
+
+async function transformContent(){
+
+    hideError();
+
+
+    /* ----------------------------------------- */
+    /* REFINEMENT CHECK */
+    /* ----------------------------------------- */
+
+    if(!promptIsRefined){
+
+        showError(
+            "Please improve the prompt first."
+        );
+
+        return;
+
+    }
+
+
+    /* ----------------------------------------- */
+    /* GET VALUES */
+    /* ----------------------------------------- */
+
+    const source =
+        document
+            .getElementById("sourceText")
+            .value
+            .trim();
+
+
+    const refinedPrompt =
+        document
+            .getElementById("refinedPrompt")
+            .value
+            .trim();
+
+
+    const audience =
+        document
+            .getElementById("audience")
+            .value;
+
+
+    const tone =
+        document
+            .getElementById("tone")
+            .value;
+
+
+    const language =
+        document
+            .getElementById("language")
+            .value;
+
+
+    const objective =
+        document
+            .getElementById("objective")
+            .value;
+
+
+    const detail =
+        document
+            .getElementById("detail")
+            .value;
+
+
+    /* ----------------------------------------- */
+    /* FILE */
+    /* ----------------------------------------- */
+
+    if(
+        !source &&
+        fileInput.files.length === 0
+    ){
+
+        showError(
+            "Please upload a file or enter source content."
+        );
+
+        return;
+
+    }
+
+
+    /* ----------------------------------------- */
+    /* PROMPT */
+    /* ----------------------------------------- */
+
+    if(!refinedPrompt){
+
+        showError(
+            "High-quality prompt is missing."
+        );
+
+        return;
+
+    }
+
+
+    /* ----------------------------------------- */
+    /* SELECTED OUTPUTS */
+    /* ----------------------------------------- */
+
+    const selected =
+        [
+            ...document.querySelectorAll(
+                ".output-option input:checked"
+            )
+        ].map(
+            input => input.value
+        );
+
+
+    if(selected.length === 0){
+
+        showError(
+            "Please select at least one output format."
+        );
+
+        return;
+
+    }
+
+
+    /* ----------------------------------------- */
+    /* UI */
+    /* ----------------------------------------- */
+
+    const loading =
+        document.getElementById(
+            "loading"
+        );
+
+
+    const outputArea =
+        document.getElementById(
+            "outputArea"
+        );
+
+
+    loading.style.display =
+        "block";
+
+
+    outputArea.style.display =
+        "none";
+
+
+    /* ----------------------------------------- */
+    /* LOADING TEXT */
+    /* ----------------------------------------- */
+
+    const loadingText =
+        document.getElementById(
+            "loadingText"
+        );
+
+
+    loadingText.innerText =
+        "Sending content to AI engine";
+
+
+    try{
+
+
+        /* ----------------------------------------- */
+        /* FORM DATA */
+        /* ----------------------------------------- */
+
+        const formData =
+            new FormData();
+
+
+        formData.append(
+            "refined_prompt",
+            refinedPrompt
+        );
+
+
+        formData.append(
+            "source_text",
+            source
+        );
+
+
+        formData.append(
+            "audience",
+            audience
+        );
+
+
+        formData.append(
+            "tone",
+            tone
+        );
+
+
+        formData.append(
+            "language",
+            language
+        );
+
+
+        formData.append(
+            "objective",
+            objective
+        );
+
+
+        formData.append(
+            "detail",
+            detail
+        );
+
+
+        formData.append(
+            "outputs",
+            selected.join(",")
+        );
+
+
+        /* ----------------------------------------- */
+        /* FILE */
+        /* ----------------------------------------- */
+
+        if(fileInput.files.length > 0){
+
+            formData.append(
+                "file",
+                fileInput.files[0]
+            );
+
+        }
+
+
+        /* ----------------------------------------- */
+        /* BACKEND */
+        /* ----------------------------------------- */
+
+        const response =
+            await fetch(
+                API_BASE_URL +
+                "/api/transform",
+                {
+                    method:"POST",
+                    body:formData
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        /* ----------------------------------------- */
+        /* ERROR */
+        /* ----------------------------------------- */
+
+        if(!response.ok){
+
+            throw new Error(
+                data.detail ||
+                "Content transformation failed."
+            );
+
+        }
+
+
+        /* ----------------------------------------- */
+        /* SAVE RESULTS */
+        /* ----------------------------------------- */
+
+        generatedOutputs =
+            data.outputs || {};
+
+
+        /* ----------------------------------------- */
+        /* CREATE TABS */
+        /* ----------------------------------------- */
+
+        createOutputTabs(
+            Object.keys(
+                generatedOutputs
+            )
+        );
+
+
+        /* ----------------------------------------- */
+        /* SHOW OUTPUT */
+        /* ----------------------------------------- */
+
+        outputArea.style.display =
+            "block";
+
+
+        outputArea.scrollIntoView({
+            behavior:"smooth"
+        });
+
+
+    }
+
+    catch(error){
+
+        console.error(
+            "Transform error:",
+            error
+        );
+
+
+        showError(
+            error.message
+        );
+
+    }
+
+    finally{
+
+        loading.style.display =
+            "none";
+
+    }
+
+}
+
+
+/* ================================================= */
+/* CREATE OUTPUT TABS */
+/* ================================================= */
+
+function createOutputTabs(selected){
+
+    const tabs =
+        document.getElementById(
+            "tabs"
+        );
+
+
+    tabs.innerHTML =
+        "";
+
+
+    selected.forEach(
+        (type,index)=>{
+
+
+            const button =
+                document.createElement(
+                    "button"
+                );
+
+
+            button.className =
+                "tab" +
+                (
+                    index === 0
+                    ? " active"
+                    : ""
+                );
+
+
+            button.innerText =
+                type;
+
+
+            button.onclick =
+                function(){
+
+
+                    document
+                        .querySelectorAll(
+                            ".tab"
+                        )
+                        .forEach(
+                            tab =>
+                            tab.classList.remove(
+                                "active"
+                            )
+                        );
+
+
+                    this.classList.add(
+                        "active"
+                    );
+
+
+                    showOutput(
+                        type
+                    );
+
+                };
+
+
+            tabs.appendChild(
+                button
+            );
+
+        }
+    );
+
+
+    if(selected.length > 0){
+
+        showOutput(
+            selected[0]
+        );
+
+    }
+
+}
+
+
+/* ================================================= */
+/* DISPLAY OUTPUT */
+/* ================================================= */
+
+function showOutput(type){
+
+    const content =
+        generatedOutputs[type];
+
+
+    document.getElementById(
+        "generatedContent"
+    ).innerHTML =
+        formatOutput(
+            content
+        );
+
+}
+
+
+/* ================================================= */
+/* FORMAT AI OUTPUT */
+/* ================================================= */
+
+function formatOutput(text){
+
+    if(!text){
+
+        return "";
+
+    }
+
+
+    /*
+        Escape HTML so AI-generated text
+        is displayed safely.
+    */
+
+    return text
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /\n/g,
+            "<br>"
+        );
+
+}
+
+
+/* ================================================= */
+/* DOWNLOAD OUTPUT */
+/* ================================================= */
+
+function downloadOutput(){
+
+    const activeTab =
+        document.querySelector(
+            ".tab.active"
+        );
+
+
+    if(!activeTab){
+
+        return;
+
+    }
+
+
+    const type =
+        activeTab.innerText;
+
+
+    const content =
+        generatedOutputs[type];
+
+
+    if(!content){
+
+        return;
+
+    }
+
+
+    const blob =
+        new Blob(
+            [content],
+            {
+                type:
+                    "text/plain"
+            }
+        );
+
+
+    const url =
+        URL.createObjectURL(
+            blob
+        );
+
+
+    const link =
+        document.createElement(
+            "a"
+        );
+
+
+    link.href =
+        url;
+
+
+    link.download =
+        type
+            .replaceAll(
+                " ",
+                "_"
+            ) +
+        ".txt";
+
+
+    document.body.appendChild(
+        link
+    );
+
+
+    link.click();
+
+
+    link.remove();
+
+
+    URL.revokeObjectURL(
+        url
+    );
+
+}
+
+
+/* ================================================= */
+/* SOURCE TEXT CHANGE */
+/* ================================================= */
+
+document
+    .getElementById("sourceText")
+    .addEventListener(
+        "input",
+        function(){
+
+            if(
+                this.value.trim() &&
+                !document
+                    .getElementById(
+                        "rawPrompt"
+                    )
+                    .value
+                    .trim()
+            ){
+
+                document
+                    .getElementById(
+                        "rawPrompt"
+                    )
+                    .placeholder =
+                    "Describe what you want the AI to do with this source...";
+
+            }
+
+        }
+    );
+
+
+/* ================================================= */
+/* RESET REFINEMENT WHEN RAW PROMPT CHANGES */
+/* ================================================= */
+
+document
+    .getElementById("rawPrompt")
+    .addEventListener(
+        "input",
+        function(){
+
+            if(promptIsRefined){
+
+                promptIsRefined =
+                    false;
+
+
+                document
+                    .getElementById(
+                        "promptStatus"
+                    )
+                    .style.display =
+                    "none";
+
+
+                document
+                    .getElementById(
+                        "refinedBox"
+                    )
+                    .style.display =
+                    "none";
+
+
+                document
+                    .getElementById(
+                        "transformButton"
+                    )
+                    .disabled =
+                    true;
+
+
+                document.querySelector(
+                    ".refine-btn"
+                ).innerText =
+                    "✨ IMPROVE PROMPT";
+
+            }
+
+        }
+    );
+
+
+/* ================================================= */
+/* BACKEND CONNECTION TEST */
+/* ================================================= */
+
+async function checkBackend(){
+
+    try{
+
+        const response =
+            await fetch(
+                API_BASE_URL +
+                "/health"
+            );
+
+
+        if(response.ok){
+
+            console.log(
+                "TransformAI backend connected."
+            );
+
+        }
+
+    }
+
+    catch(error){
+
+        console.warn(
+            "Backend is not currently running."
+        );
+
+    }
+
+}
+
+
+/* Run backend test */
+
+checkBackend();
+
+</script>
+
+
+</body>
+
+</html>
