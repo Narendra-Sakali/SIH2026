@@ -1,0 +1,19 @@
+*   [33mb563187[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Merge pull request #2 from Narendra-Sakali/transformation-history
+[31m|[m[32m\[m  
+[31m|[m * [33m5ff5c77[m[33m ([m[1;31morigin/transformation-history[m[33m, [m[1;32mtransformation-history[m[33m)[m Added transformation history dashboard
+* [32m|[m   [33m1091de4[m Merge pull request #1 from Narendra-Sakali/frontend
+[32m|[m[34m\[m [32m\[m  
+[32m|[m [34m|[m[32m/[m  
+[32m|[m[32m/[m[34m|[m   
+[32m|[m * [33m015b0d8[m[33m ([m[1;31morigin/frontend[m[33m, [m[1;32mfrontend[m[33m)[m Added frontend changes
+[32m|[m[32m/[m  
+* [33mb42a56a[m updated
+* [33m5919669[m Delete SIH_JUDGING_GUIDE.md
+* [33m6e1e2ae[m Keep backend files under backend directory
+*   [33me59714c[m Merge existing GitHub project history
+[35m|[m[36m\[m  
+[35m|[m * [33ma2ace2c[m updated
+[35m|[m * [33mfdf3127[m Add Jenkins pipeline for CI/CD process
+[35m|[m * [33mc79ca42[m first commit
+* [33mf03a8bc[m Include backend source in main repository
+* [33m3eb06bd[m Initial commit for SIH2026 TransformAI project
