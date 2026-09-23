@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TransformAI | History</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    background: #f4f7fb;
+    color: #172033;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    background: #071a2d;
+    color: white;
+    padding: 25px 18px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    margin-bottom: 35px;
+}
+
+.logo-icon {
+    width: 43px;
+    height: 43px;
+    background: linear-gradient(135deg, #16a085, #1abc9c);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.logo-text h2 {
+    font-size: 19px;
+}
+
+.logo-text p {
+    font-size: 10px;
+    color: #8ea5ba;
+    margin-top: 3px;
+    letter-spacing: 1px;
+}
+
+.menu-title {
+    color: #70879c;
+    font-size: 11px;
+    text-transform: uppercase;
+    margin: 20px 12px 10px;
+    letter-spacing: 1px;
+}
+
+.menu-item {
+    padding: 13px 14px;
+    margin: 5px 0;
+    border-radius: 9px;
+    color: #aebdcc;
+    cursor: pointer;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    text-decoration: none;
+}
+
+.menu-item:hover,
+.menu-item.active {
+    background: #123450;
+    color: white;
+}
+
+/* MAIN */
+
+.main {
+    margin-left: 250px;
+    min-height: 100vh;
+}
+
+.topbar {
+    height: 72px;
+    background: white;
+    border-bottom: 1px solid #e5eaf0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 35px;
+}
+
+.page-title h1 {
+    font-size: 22px;
+}
+
+.page-title p {
+    font-size: 12px;
+    color: #7a8797;
+    margin-top: 3px;
+}
+
+/* CONTENT */
+
+.content {
+    padding: 30px 35px;
+}
+
+.welcome {
+    margin-bottom: 25px;
+}
+
+.welcome h2 {
+    font-size: 25px;
+    margin-bottom: 6px;
+}
+
+.welcome p {
+    color: #718094;
+    font-size: 14px;
+}
+
+/* STATS */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background: white;
+    border: 1px solid #e4e9ef;
+    border-radius: 14px;
+    padding: 20px;
+}
+
+.stat-card h4 {
+    color: #718094;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.stat-card strong {
+    font-size: 28px;
+    color: #0c8d78;
+}
+
+/* HISTORY CARD */
+
+.history-card {
+    background: white;
+    border: 1px solid #e4e9ef;
+    border-radius: 14px;
+    padding: 22px;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.history-header h3 {
+    font-size: 17px;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    border: none;
+    padding: 9px 14px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.download-btn {
+    background: #0c8d78;
+    color: white;
+}
+
+.clear-btn {
+    background: #fff1f1;
+    color: #a33a3a;
+}
+
+/* SEARCH */
+
+.controls {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.controls input,
+.controls select {
+    padding: 11px;
+    border: 1px solid #dbe2e8;
+    border-radius: 8px;
+    outline: none;
+}
+
+.controls input {
+    flex: 1;
+}
+
+/* TABLE */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: #f5f8fa;
+    color: #526174;
+    font-size: 12px;
+    text-align: left;
+    padding: 13px;
+}
+
+td {
+    padding: 14px 13px;
+    border-bottom: 1px solid #edf0f3;
+    font-size: 12px;
+}
+
+.type {
+    color: #0c8d78;
+    font-weight: 600;
+}
+
+.view-btn {
+    background: #e8f7f4;
+    color: #087765;
+}
+
+.delete-btn {
+    background: #fff1f1;
+    color: #a33a3a;
+}
+
+.empty {
+    text-align: center;
+    padding: 50px;
+    color: #8491a0;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 900px) {
+
+    .sidebar {
+        width: 200px;
+    }
+
+    .main {
+        margin-left: 200px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            T
+        </div>
+
+        <div class="logo-text">
+            <h2>TransformAI</h2>
+            <p>CONTENT INTELLIGENCE</p>
+        </div>
+
+    </div>
+
+    <div class="menu-title">
+        Workspace
+    </div>
+
+    <a class="menu-item" href="index.html">
+        🏠 Dashboard
+    </a>
+
+    <a class="menu-item active" href="history.html">
+        🕘 Transformation History
+    </a>
+
+</div>
+
+
+<!-- MAIN -->
+
+<div class="main">
+
+    <div class="topbar">
+
+        <div class="page-title">
+
+            <h1>Transformation History</h1>
+
+            <p>
+                View and manage your previous content transformations
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="content">
+
+        <div class="welcome">
+
+            <h2>Transformation History</h2>
+
+            <p>
+                Track your generated content and quickly access previous transformations.
+            </p>
+
+        </div>
+
+
+        <!-- STATISTICS -->
+
+        <div class="stats">
+
+            <div class="stat-card">
+
+                <h4>Total Transformations</h4>
+
+                <strong id="totalCount">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <h4>Most Used Output</h4>
+
+                <strong id="mostUsed">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <h4>Latest Activity</h4>
+
+                <strong id="latestActivity">
+                    -
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- HISTORY -->
+
+        <div class="history-card">
+
+            <div class="history-header">
+
+                <h3>
+                    Recent Transformations
+                </h3>
+
+                <div class="actions">
+
+                    <button
+                        class="download-btn"
+                        onclick="downloadHistory()">
+                        Download
+                    </button>
+
+                    <button
+                        class="clear-btn"
+                        onclick="clearHistory()">
+                        Clear All
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- SEARCH -->
+
+            <div class="controls">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search transformations..."
+                    onkeyup="renderHistory()">
+
+
+                <select
+                    id="filterType"
+                    onchange="renderHistory()">
+
+                    <option value="all">
+                        All Types
+                    </option>
+
+                    <option value="Executive Summary">
+                        Executive Summary
+                    </option>
+
+                    <option value="Advisory">
+                        Advisory
+                    </option>
+
+                    <option value="LinkedIn Post">
+                        LinkedIn Post
+                    </option>
+
+                    <option value="Presentation">
+                        Presentation
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- TABLE -->
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Date
+                        </th>
+
+                        <th>
+                            Original Prompt
+                        </th>
+
+                        <th>
+                            Output Type
+                        </th>
+
+                        <th>
+                            Language
+                        </th>
+
+                        <th>
+                            Actions
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="historyTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/*
+    Transformation History
+    Data is stored in browser localStorage.
+*/
+
+const STORAGE_KEY = "transformAIHistory";
+
+
+function getHistory() {
+
+    return JSON.parse(
+        localStorage.getItem(STORAGE_KEY) || "[]"
+    );
+
+}
+
+
+function saveHistory(data) {
+
+    localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(data)
+    );
+
+}
+
+
+function addDemoData() {
+
+    const history = getHistory();
+
+    if (history.length === 0) {
+
+        const demo = [
+
+            {
+                id: Date.now(),
+                date: new Date().toLocaleString(),
+                prompt: "Create a professional summary about artificial intelligence.",
+                type: "Executive Summary",
+                language: "English",
+                output: "AI is transforming many industries by improving automation, analysis and decision making."
+            },
+
+            {
+                id: Date.now() + 1,
+                date: new Date().toLocaleString(),
+                prompt: "Create a LinkedIn post about digital transformation.",
+                type: "LinkedIn Post",
+                language: "English",
+                output: "Digital transformation is helping organizations improve efficiency and innovation."
+            }
+
+        ];
+
+        saveHistory(demo);
+
+    }
+
+}
+
+
+function renderHistory() {
+
+    const table =
+        document.getElementById("historyTable");
+
+    const search =
+        document.getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+    const filter =
+        document.getElementById("filterType")
+        .value;
+
+
+    let history = getHistory();
+
+
+    history = history.filter(item => {
+
+        const matchesSearch =
+            item.prompt
+                .toLowerCase()
+                .includes(search);
+
+        const matchesType =
+            filter === "all" ||
+            item.type === filter;
+
+        return matchesSearch && matchesType;
+
+    });
+
+
+    table.innerHTML = "";
+
+
+    if (history.length === 0) {
+
+        table.innerHTML = `
+            <tr>
+                <td colspan="5" class="empty">
+                    No transformation history found.
+                </td>
+            </tr>
+        `;
+
+        return;
+
+    }
+
+
+    history.forEach(item => {
+
+        const row =
+            document.createElement("tr");
+
+
+        row.innerHTML = `
+
+            <td>
+                ${item.date}
+            </td>
+
+            <td>
+                ${item.prompt.substring(0, 60)}
+                ${item.prompt.length > 60 ? "..." : ""}
+            </td>
+
+            <td class="type">
+                ${item.type}
+            </td>
+
+            <td>
+                ${item.language}
+            </td>
+
+            <td>
+
+                <button
+                    class="view-btn"
+                    onclick="viewTransformation(${item.id})">
+                    View
+                </button>
+
+                <button
+                    class="delete-btn"
+                    onclick="deleteTransformation(${item.id})">
+                    Delete
+                </button>
+
+            </td>
+
+        `;
+
+
+        table.appendChild(row);
+
+    });
+
+
+    updateStatistics();
+
+}
+
+
+function viewTransformation(id) {
+
+    const history = getHistory();
+
+    const item =
+        history.find(
+            record => record.id === id
+        );
+
+
+    if (!item) {
+
+        return;
+
+    }
+
+
+    alert(
+
+        "Original Prompt:\n\n" +
+        item.prompt +
+
+        "\n\nOutput Type:\n" +
+        item.type +
+
+        "\n\nLanguage:\n" +
+        item.language +
+
+        "\n\nGenerated Output:\n\n" +
+        item.output
+
+    );
+
+}
+
+
+function deleteTransformation(id) {
+
+    const confirmDelete =
+        confirm(
+            "Delete this transformation?"
+        );
+
+
+    if (!confirmDelete) {
+
+        return;
+
+    }
+
+
+    let history = getHistory();
+
+
+    history =
+        history.filter(
+            item => item.id !== id
+        );
+
+
+    saveHistory(history);
+
+    renderHistory();
+
+}
+
+
+function clearHistory() {
+
+    const confirmClear =
+        confirm(
+            "Are you sure you want to clear all history?"
+        );
+
+
+    if (!confirmClear) {
+
+        return;
+
+    }
+
+
+    localStorage.removeItem(
+        STORAGE_KEY
+    );
+
+    renderHistory();
+
+}
+
+
+function downloadHistory() {
+
+    const history = getHistory();
+
+
+    if (history.length === 0) {
+
+        alert(
+            "No history available."
+        );
+
+        return;
+
+    }
+
+
+    const data =
+        JSON.stringify(
+            history,
+            null,
+            2
+        );
+
+
+    const blob =
+        new Blob(
+            [data],
+            { type: "application/json" }
+        );
+
+
+    const url =
+        URL.createObjectURL(blob);
+
+
+    const link =
+        document.createElement("a");
+
+
+    link.href = url;
+
+    link.download =
+        "transformAI-history.json";
+
+
+    link.click();
+
+
+    URL.revokeObjectURL(url);
+
+}
+
+
+function updateStatistics() {
+
+    const history =
+        getHistory();
+
+
+    document.getElementById(
+        "totalCount"
+    ).textContent =
+        history.length;
+
+
+    if (history.length === 0) {
+
+        document.getElementById(
+            "mostUsed"
+        ).textContent = "-";
+
+        document.getElementById(
+            "latestActivity"
+        ).textContent = "-";
+
+        return;
+
+    }
+
+
+    const typeCount = {};
+
+
+    history.forEach(item => {
+
+        typeCount[item.type] =
+            (typeCount[item.type] || 0) + 1;
+
+    });
+
+
+    const mostUsed =
+        Object.keys(typeCount)
+        .sort(
+            (a, b) =>
+                typeCount[b] -
+                typeCount[a]
+        )[0];
+
+
+    document.getElementById(
+        "mostUsed"
+    ).textContent =
+        mostUsed;
+
+
+    document.getElementById(
+        "latestActivity"
+    ).textContent =
+        history[0].date;
+
+}
+
+
+addDemoData();
+
+renderHistory();
+
+</script>
+
+</body>
+
+</html>
